@@ -17,7 +17,6 @@
       font-family: 'Segoe UI', cursive;
       overflow: hidden;
       color: #fff;
-      background-color: #000;
     }
 
     #bgVideo {
@@ -39,7 +38,7 @@
 
     .floating-photo {
       position: absolute;
-      width: 80px;
+      width: 100px;
       opacity: 0;
       border-radius: 15px;
       animation: fadeIn 1.5s ease-out forwards, floatY 10s ease-in-out infinite, driftX 30s linear infinite;
@@ -70,27 +69,25 @@
       align-items: center;
       justify-content: center;
       text-align: center;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(5px);
       background: rgba(0, 0, 0, 0.4);
       padding: 20px;
       border-radius: 15px;
     }
 
     h1 {
-      font-size: 2.5rem;
+      font-size: 3em;
       animation: fadeInText 2s ease-in;
-      padding: 0 10px;
     }
 
     .typewriter {
-      font-size: 1.2rem;
+      font-size: 1.5em;
       margin: 20px;
       border-right: 2px solid #fff;
       white-space: nowrap;
       overflow: hidden;
       width: 0;
       animation: typing 4s steps(40, end) forwards, blink .75s step-end infinite;
-      max-width: 90vw;
     }
 
     @keyframes fadeInText {
@@ -108,11 +105,11 @@
     }
 
     button {
-      padding: 12px 24px;
+      padding: 10px 20px;
       background: #ff69b4;
       border: none;
       color: white;
-      font-size: 1rem;
+      font-size: 1em;
       margin-top: 20px;
       border-radius: 10px;
       cursor: pointer;
@@ -125,12 +122,11 @@
 
     #message {
       margin-top: 20px;
-      font-size: 1.1rem;
+      font-size: 1.2em;
       color: #ffdde1;
       display: none;
       opacity: 0;
       transition: opacity 1s ease;
-      padding: 0 10px;
     }
 
     #message.show {
@@ -138,25 +134,9 @@
       opacity: 1;
     }
 
-    /* Mobile Responsiveness */
     @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-
-      .typewriter {
-        font-size: 1rem;
-        max-width: 100%;
-      }
-
-      button {
-        font-size: 0.95rem;
-        padding: 10px 20px;
-      }
-
-      .floating-photo {
-        width: 60px;
-      }
+      h1 { font-size: 2em; }
+      .typewriter { font-size: 1em; }
     }
   </style>
 </head>
