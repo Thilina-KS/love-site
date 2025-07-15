@@ -39,14 +39,10 @@
     .floating-photo {
       position: absolute;
       width: 100px;
-      opacity: 0;
+      opacity: 0.85;
       border-radius: 15px;
-      animation: fadeIn 1.5s ease-out forwards, floatY 10s ease-in-out infinite, driftX 30s linear infinite;
+      animation: floatY 10s ease-in-out infinite, driftX 30s linear infinite;
       z-index: -2;
-    }
-
-    @keyframes fadeIn {
-      to { opacity: 0.85; }
     }
 
     @keyframes floatY {
@@ -55,29 +51,29 @@
     }
 
     @keyframes driftX {
-      0% { transform: translateX(-150px); }
-      100% { transform: translateX(calc(100vw + 150px)); }
+      0% { transform: translateX(-100vw); }
+      100% { transform: translateX(100vw); }
     }
 
-    .content {
-      position: relative;
-      z-index: 10;
-      height: 100vh;
-      width: 100vw;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      backdrop-filter: blur(5px);
-      background: rgba(0, 0, 0, 0.4);
-      padding: 20px;
-      border-radius: 15px;
+.content {
+  position: relative;
+  z-index: 10;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  backdrop-filter: blur(5px);
+  background: rgba(0, 0, 0, 0.4); /* Add this line */
+  padding: 20px;
+  border-radius: 15px;
     }
 
     h1 {
       font-size: 3em;
-      animation: fadeInText 2s ease-in;
+      animation: fadeIn 2s ease-in;
     }
 
     .typewriter {
@@ -90,7 +86,7 @@
       animation: typing 4s steps(40, end) forwards, blink .75s step-end infinite;
     }
 
-    @keyframes fadeInText {
+    @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
     }
@@ -124,14 +120,6 @@
       margin-top: 20px;
       font-size: 1.2em;
       color: #ffdde1;
-      display: none;
-      opacity: 0;
-      transition: opacity 1s ease;
-    }
-
-    #message.show {
-      display: block;
-      opacity: 1;
     }
 
     @media (max-width: 600px) {
@@ -152,25 +140,24 @@
   <div id="particles-js"></div>
 
   <!-- Floating Images -->
-  <img class="floating-photo" src="https://i.pinimg.com/1200x/25/97/82/259782f109249f3ccffdd57cbac1b287.jpg" style="top:10%; left:-120px;">
-  <img class="floating-photo" src="https://i.pinimg.com/1200x/e0/80/3a/e0803a4ed01dfbea1a82beff6cfd2929.jpg" style="top:40%; left:-200px;">
-  <img class="floating-photo" src="https://i.pinimg.com/1200x/be/8c/77/be8c772dcba13133b252dd46b18ab83a.jpg" style="top:70%; left:-150px;">
-  <img class="floating-photo" src="https://i.pinimg.com/1200x/bf/d6/08/bfd6089a0d412b39ab53d833d16f5bea.jpg" style="top:20%; left:-180px;">
+  <img class="floating-photo" src="https://i.pinimg.com/1200x/25/97/82/259782f109249f3ccffdd57cbac1b287.jpg" style="top:10%; left:-120px; animation-delay: 0s;">
+  <img class="floating-photo" src="https://i.pinimg.com/1200x/e0/80/3a/e0803a4ed01dfbea1a82beff6cfd2929.jpg" style="top:40%; left:-200px; animation-delay: 2s;">
+  <img class="floating-photo" src="https://i.pinimg.com/1200x/be/8c/77/be8c772dcba13133b252dd46b18ab83a.jpg" style="top:70%; left:-150px; animation-delay: 5s;">
+  <img class="floating-photo" src="https://i.pinimg.com/1200x/bf/d6/08/bfd6089a0d412b39ab53d833d16f5bea.jpg" style="top:20%; left:-180px; animation-delay: 8s;">
 
   <!-- Main Content -->
   <div class="content">
     <h1>To My One and Only ❤️</h1>
     <div class="typewriter">From the moment I met you, everything changed...</div>
     <button onclick="showMessage()">Click to Reveal 💌</button>
-    <p id="message">I will always love you. Forever and always 💖</p>
+    <p id="message" style="display:none;">I will always love you. Forever and always 💖</p>
   </div>
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
   <script>
     function showMessage() {
-      const msg = document.getElementById("message");
-      msg.classList.toggle("show");
+      document.getElementById("message").style.display = "block";
     }
 
     particlesJS("particles-js", {
@@ -180,19 +167,8 @@
         shape: { type: "circle" },
         opacity: { value: 0.5, random: false },
         size: { value: 4, random: true },
-        line_linked: {
-          enable: true,
-          distance: 150,
-          color: "#ff69b4",
-          opacity: 0.4,
-          width: 1
-        },
-        move: {
-          enable: true,
-          speed: 2,
-          direction: "none",
-          out_mode: "out"
-        }
+        line_linked: { enable: true, distance: 150, color: "#ff69b4", opacity: 0.4, width: 1 },
+        move: { enable: true, speed: 2, direction: "none", out_mode: "out" }
       }
     });
   </script>
